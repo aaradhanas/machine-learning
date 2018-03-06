@@ -1,0 +1,1 @@
+This repository contains the course materials and assignments done as part of the Machine learning course by Andrew Ng.
