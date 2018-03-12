@@ -25,7 +25,7 @@ h = sigmoid(X * theta);
 
 theta = theta(2:size(theta,1),1);
 
-regSquares = theta .^ 2;
+regSquares = sum(theta .^ 2);
 
 reg = lambda/(2*m) * regSquares;
 
