@@ -1,0 +1,11 @@
+######################
+# Ignore the token.mat file used for submitting assignments
+######################
+/Week3/assignments/token.mat
+/Week4/assignments/token.mat
+
+######################
+# Ignore the submit.m file used for submitting assignments
+######################
+/Week3/assignments/submit.m
+/Week4/assignments/submit.m
