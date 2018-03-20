@@ -30,8 +30,12 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
+for i = 1:m
+  h = zeros(num_labels,1);
+  h = sigmoid(all_theta * X(i,:)');
+  [max_val, index] = max(h);
+  p(i,1) = index;
+end;
 
 
 
