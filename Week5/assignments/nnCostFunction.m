@@ -63,22 +63,25 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
+X = [ones(m,1) X];
+
+for i = 1:m
+  z2 = Theta1 * X(i,:)';
+  a2 = sigmoid(z2);
+  
+  a2 = [ones(1, columns(a2)); a2];
+  z3 = Theta2 * a2
+  h = sigmoid(z3);
+  
+  y_vector = zeros(num_labels,1);
+  y_vector(y(i)) = 1;
+  
+  cost = y_vector' * log(h) + (1-y_vector)' * log(1-h);
+  J = J + cost;
+end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+J = - (1/m) * J;
 
 % -------------------------------------------------------------
 

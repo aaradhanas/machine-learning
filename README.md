@@ -29,3 +29,10 @@ This repository contains the course materials and assignments done as part of th
     - Motivations
     - Neural Networks
     - Applications
+	
+## Week 5
+
+- Neural Networks: Learning
+    - Cost Function and Backpropagation
+    - Backpropagation in Practice
+    - Application of Neural Networks - Autonomous driving
