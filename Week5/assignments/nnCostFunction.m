@@ -83,6 +83,25 @@ end
 
 J = - (1/m) * J;
 
+reg_term = 0;
+
+% For layer 1
+for j = 1 : size(Theta1,1)
+  for k = 2 : size(Theta1,2)
+    reg_term = reg_term + Theta1(j,k) ^ 2;
+   end
+end
+
+% For layer 2
+for j = 1 : size(Theta2,1)
+  for k = 2 : size(Theta2,2)
+    reg_term = reg_term + Theta2(j,k) ^ 2;
+   end
+end
+
+reg_term = (lambda/(2*m)) * reg_term;
+J = J + reg_term;
+
 % -------------------------------------------------------------
 
 % =========================================================================

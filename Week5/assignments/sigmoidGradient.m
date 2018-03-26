@@ -14,7 +14,18 @@ g = zeros(size(z));
 
 
 
-
+if (size(z,1) == 1 && size(z,2) == 1)
+  g = 1/(1+exp(-z));
+  g = g * (1-g);
+else
+  for row = 1:size(z,1)
+    for col = 1:size(z,2)
+      el = z(row, col);
+      sig_value = 1/(1+exp(-el));
+      g(row, col) = sig_value * (1-sig_value);
+    end
+  end
+endif
 
 
 
