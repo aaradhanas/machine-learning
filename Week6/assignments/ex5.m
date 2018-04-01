@@ -218,3 +218,6 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+[test_error] = computeTestError(X_poly, y, X_poly_val, yval, X_poly_test, ytest);
+fprintf('Test error = %f \n\n', test_error);

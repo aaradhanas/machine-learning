@@ -1,5 +1,7 @@
-function [lambda_vec, error_train, error_val] = ...
-    validationCurve(X, y, Xval, yval)
+% Compute test error using the theta which gave the lowest error on the cross validation set.
+
+function [test_error] = ...
+    computeTestError(X, y, Xval, yval, Xtest, ytest)
 %VALIDATIONCURVE Generate the train and validation errors needed to
 %plot a validation curve that we can use to select lambda
 %   [lambda_vec, error_train, error_val] = ...
@@ -41,13 +43,25 @@ error_val = zeros(length(lambda_vec), 1);
 
 theta = zeros(size(X,2), 1);
 
+theta_min = zeros(size(X,2), 1);
+
+min = 32768;
+
 for i = 1: length(lambda_vec)
   lambda = lambda_vec(i);
   theta = trainLinearReg(X, y, lambda);
   error_train(i) =  linearRegCostFunction(X, y, theta, 0);
   error_val(i) =  linearRegCostFunction(Xval, yval, theta, 0);
+  
+  if error_val(i) < min
+    theta_min = theta;
+    min = error_val(i);
+    fprintf('min = %f \n\n', min);
+   end
 end
 
+
+test_error = linearRegCostFunction(Xtest, ytest, theta_min, 0);
 
 % =========================================================================
 
