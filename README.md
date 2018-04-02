@@ -36,3 +36,12 @@ This repository contains the course materials and assignments done as part of th
     - Cost Function and Backpropagation
     - Backpropagation in Practice
     - Application of Neural Networks - Autonomous driving
+
+## Week 6
+- Advice for applying machine learning
+    - Evaluating a Learning Algorithm
+    - Bias vs. Variance
+- Machine learning system design
+    - Building a Spam Classifier
+    - Handling Skewed Data
+    - Using Large Data Sets
