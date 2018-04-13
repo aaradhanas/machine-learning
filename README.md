@@ -45,3 +45,16 @@ This repository contains the course materials and assignments done as part of th
     - Building a Spam Classifier
     - Handling Skewed Data
     - Using Large Data Sets
+
+## Week 7
+- Support Vector Machines
+    - Large Margin Classification
+    - Kernels
+    - SVMs in Practice
+
+## Week 8
+- Unsupervised Learning
+    - Clustering
+- Dimensionality Reduction
+    - Principal Component Analysis
+    - Applying PCA
