@@ -41,19 +41,64 @@ Theta_grad = zeros(size(Theta));
 %
 
 
+%summation_term = 0;
+
+%for i = 1: num_movies
+ % for j = 1: num_users
+  %  if R(i,j) == 1
+   %   summation_term += ( X(i,:) * Theta(j,:)' - Y(i,j) ) ^ 2;
+    %end
+  %end
+%end
+
+%J = (1/2) * summation_term;
+
+% Consider only the predictions of movies for which R(i,j) = 1
+M = (X * Theta') .* R;
+
+% Squared error
+M = (M - Y) .^ 2;
+
+% Regularization term
+theta_reg_term = (lambda / 2) * sum(sum(Theta .^ 2, 2));
+x_reg_term = (lambda / 2) * sum(sum(X .^ 2, 2));
+
+% Cost function
+J = (1/2) * sum(sum(M)) + theta_reg_term + x_reg_term;
 
 
 
+%for i = 1: num_movies
+%  for j = 1:num_users
+%    if R(i,j) == 1
+%      X_grad(i,:) += ( X(i,:) * Theta(j,:)' - Y(i,j) ) * Theta(j,:) ;
+%    end
+%  end
+%  X_grad(i,:) += lambda * X(i,:);
+%end
 
+%for i = 1: num_movies
+    %X_grad(i,:) = ( M(i,:) - Y(i,:) ) * Theta + lambda * X(i,:);
+    
+    %idx =  find(R(i,:) == 1);
+    %Theta_temp = Theta(idx,:);
+    %Y_temp = Y(i,idx);
+    %X_grad(i,:) = (X(i,:) * Theta_temp' - Y_temp) * Theta_temp;
+%end
 
+M = (X * Theta') .* R;
 
+X_grad = (M - Y) * Theta + lambda*X;
+Theta_grad = (M - Y)' * X + lambda*Theta;
 
-
-
-
-
-
-
+%for j = 1: num_users
+%  for i = 1:num_movies
+%    if R(i,j) == 1
+%      Theta_grad(j,:) += ( X(i,:) * Theta(j,:)' - Y(i,j) ) * X(i,:);
+%    end
+%  end
+%  Theta_grad(j,:) += lambda * Theta(j,:);
+%end
 
 % =============================================================
 

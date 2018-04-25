@@ -222,7 +222,7 @@ movieList = loadMovieList();
 
 [r, ix] = sort(my_predictions, 'descend');
 fprintf('\nTop recommendations for you:\n');
-for i=1:10
+for i=1:50
     j = ix(i);
     fprintf('Predicting rating %.1f for movie %s\n', my_predictions(j), ...
             movieList{j});
